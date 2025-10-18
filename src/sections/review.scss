@@ -1,0 +1,33 @@
+.review {
+    display: flex;
+    align-items: flex-start;
+
+    img {
+        height: 73px;
+        border-radius: 50px;
+        ;
+        margin: 30px 20px;
+        align-items: center;
+    }
+}
+
+.quote {
+    margin: 20px 0 0 0;
+    font-style: italic;
+    font-weight: 550;
+    font-size: 24px;
+    color: #000;
+}
+
+.author {
+    margin: 10px 0 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}

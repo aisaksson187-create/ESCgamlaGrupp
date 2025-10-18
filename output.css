@@ -18,14 +18,7 @@
   margin: 20px;
 }
 
-body {
-  font-family: "Roboto";
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-.image {
+.top img {
   display: flex;
   width: 100%;
   height: 274px;
@@ -33,6 +26,8 @@ body {
 
 .buttons {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .buttons .btn1 {
   background-color: #8ACFE5;
@@ -100,4 +95,11 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+}
+
+body {
+  font-family: "Roboto";
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
