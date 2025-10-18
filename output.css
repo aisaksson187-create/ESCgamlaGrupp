@@ -97,6 +97,16 @@
   margin: 0;
 }
 
+.panel {
+  display: flex;
+  justify-content: center;
+}
+.panel h1 {
+  font-size: 32px;
+  font-weight: 570;
+  margin-top: 60px;
+}
+
 body {
   font-family: "Roboto";
   font-weight: bold;
