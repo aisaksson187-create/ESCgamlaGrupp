@@ -108,8 +108,9 @@
 }
 
 .card {
-  width: 320px;
+  width: 363px;
   margin: 50px auto;
+  flex: 0 0 320px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -125,21 +126,24 @@
   object-fit: cover;
 }
 
-.card-content {
+.cardContent {
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.card-content h3 {
+.cardContent h3 {
   margin: 0;
   font-size: 18px;
   color: #222;
 }
-.card-content p {
+.cardContent p {
   font-size: 14px;
   color: #555;
   margin-bottom: 15px;
   line-height: 1.4;
 }
-.card-content button {
+.cardContent button {
   background-color: #e63946;
   color: white;
   border: none;
@@ -147,8 +151,10 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  align-self: flex-end;
+  width: auto;
 }
-.card-content button:hover {
+.cardContent button:hover {
   background-color: #c92032;
 }
 
@@ -161,6 +167,17 @@
 .participants {
   color: #777;
   margin-left: 8px;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.cardFlex {
+  flex: 0 0 calc(45vw - 181.5px);
 }
 
 body {
