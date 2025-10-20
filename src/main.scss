@@ -3,6 +3,7 @@
 @use "sections/review";
 @use "sections/panel";
 @use "sections/story";
+@use "sections/promos";
 
 body {
     font-family: "Roboto";
@@ -10,5 +11,3 @@ body {
     margin: 0;
     padding: 0;
 }
-
-

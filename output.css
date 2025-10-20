@@ -191,7 +191,7 @@
 .story h3 {
   color: white;
   text-align: center;
-  font-weight: normal;
+  font-weight: 200;
   font-size: 28px;
 }
 .story button {
@@ -199,8 +199,38 @@
   color: #8ACFE5;
   border: 1px solid #8ACFE5;
   border-radius: 3px;
-  padding: 10px 30px;
+  padding: 20px 70px;
   font-weight: bold;
+  font-family: "Roboto";
+  font-size: 25px;
+}
+
+.promos img {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.promos h3 {
+  font-size: 32px;
+  text-align: center;
+}
+.promos p {
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+.promos button {
+  background-color: #E3170A;
+  color: white;
+  border: none;
+  padding: 20px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: flex-end;
+  width: auto;
+  font-size: 24px;
+  margin: 20px 20px 50px;
 }
 
 body {
