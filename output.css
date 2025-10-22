@@ -99,7 +99,8 @@ header h1 {
 
 .panel {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .panel h1 {
   font-size: 32px;
@@ -108,9 +109,8 @@ header h1 {
 }
 
 .card {
-  width: 363px;
-  margin: 50px auto;
-  flex: 0 0 320px;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -171,12 +171,17 @@ header h1 {
 
 .cardContainer {
   display: flex;
+  flex-direction: row;
   gap: 30px;
-  padding: 20px;
-}
-
-.cardFlex {
-  flex: 0 0 calc(45vw - 181.5px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 20%;
+  padding-right: 10%;
+  justify-content: flex-start;
 }
 
 .story {
