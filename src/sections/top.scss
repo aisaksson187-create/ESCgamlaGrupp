@@ -1,15 +1,17 @@
 .top img {
-    display: flex;
+    display: block;
     width: 100%;
     height: 274px;
+    object-fit: cover;
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+    margin-top: 30px;
 
-    
 
     .btn1 {
         background-color: #8ACFE5;
@@ -18,8 +20,6 @@
         font-size: 20px;
         width: 308px;
         height: 66px;
-        margin: auto;
-        margin-top: 30px;
         border: none;
         border-radius: 5px;
         text-align: center;
@@ -28,6 +28,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0;
     }
 
     .btn2 {
@@ -37,14 +38,47 @@
         color: #36769D;
         text-decoration: underline;
         font-size: 16px;
-        height: 20px;
-        margin: auto;
-        margin-top: 30px;
+        height: 66px;
         border: none;
         border-radius: 5px;
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .top img {
+        height: 500px;
+    }
+
+
+
+    .buttons {
+        flex-direction: row;
+        gap: 10px;
+        margin-top: -33px;
+        justify-content: center;
+
+        .btn2 {
+            background-color: #E3170A;
+            font-family: "Roboto";
+            font-weight: bold;
+            font-size: 20px;
+            width: 308px;
+            height: 66px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
     }
 }
