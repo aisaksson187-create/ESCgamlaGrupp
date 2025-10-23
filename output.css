@@ -311,7 +311,7 @@ nav.desktopLinks li a:hover {
 .story h3 {
   color: white;
   text-align: center;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 28px;
 }
 .story button {
@@ -325,6 +325,11 @@ nav.desktopLinks li a:hover {
   font-size: 25px;
 }
 
+@media (min-width: 768px) {
+  h3 {
+    width: 632px;
+  }
+}
 .promos img {
   width: 100%;
   height: auto;
