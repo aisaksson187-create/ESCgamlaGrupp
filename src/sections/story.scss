@@ -26,8 +26,11 @@
     }
 }
 
-  @media (min-width: 768px) {
-    h3 {
-        width: 632px;
+@media (min-width: 768px) {
+    .story {
+        margin-top: 80px;
+        h3 {
+            width: 632px;
+        }
     }
-  }
+}

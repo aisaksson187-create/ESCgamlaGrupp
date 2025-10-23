@@ -1,6 +1,10 @@
 .reviews {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 500px;
+    margin-top: 20px;
 
     .review {
         display: flex;
@@ -42,11 +46,13 @@
     }
 
 
-    @media (min-width: 768px) {
+    @media (min-width: 1200px) {
 
         flex-direction: row;
         justify-content: center;
-        margin-top: 50px;
+        margin: 50px 150px 0;
+        max-width: fit-content;
+
 
         .reviewDesktop {
             display: flex;

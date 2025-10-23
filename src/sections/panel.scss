@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 40px;
 
     h1 {
         font-size: 32px;
@@ -11,7 +12,7 @@
 }
 
 .card {
-    flex: 0 0 100%;
+    flex: 0 0 350px;
     scroll-snap-align: center;
     background: white;
     border-radius: 10px;
@@ -73,9 +74,26 @@
 
 
 .rating {
-    margin: 8px 0;
-    font-size: 14px;
-    color: #e63946;
+    display: flex;
+    align-items: center;
+
+    .fa-star {
+        font-size: 15px;
+        color: transparent;
+        margin-right: 4px;
+
+        &.fa-regular {
+            color: #E3170A;
+
+            &:hover {
+                font-family: "Font Awesome 6 Free";
+            }
+        }
+
+        &.fa-solid {
+            color: #E3170A
+        }
+    }
 }
 
 .participants {
@@ -86,7 +104,7 @@
 .cardContainer {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+     gap: clamp(20px, 5vw, 80px);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -98,24 +116,30 @@
     justify-content: flex-start;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 999px) {
+    .panel {
+        h1 {
+            font-size: 36px;
 
- .cardContainer {
-    justify-content: center;
-    flex-wrap: wrap;
-    overflow-x: visible;
-    padding: 40px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 40px;
- }
+        }
+    }
 
- .card {
-    flex: 1;
-    max-width: 350px;
-    min-width: 300px;
-    scroll-snap-align: none;
-    margin-bottom: 60px;
- }
+    .cardContainer {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        padding: 40px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 40px;
+    }
+
+    .card {
+        flex: 1;
+        max-width: 350px;
+        min-width: 300px;
+        scroll-snap-align: none;
+        margin-bottom: 60px;
+    }
 
 }
