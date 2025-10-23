@@ -148,36 +148,50 @@ nav.desktopLinks li a:hover {
     justify-content: center;
   }
 }
-.review {
+.reviews {
   display: flex;
   align-items: flex-start;
 }
-.review img {
+.reviews .review {
+  display: flex;
+  align-items: flex-start;
+}
+.reviews img {
   height: 73px;
   border-radius: 50px;
   margin: 30px 20px;
   align-items: center;
 }
-
-.quote {
+.reviews .quote {
   margin: 20px 0 0 0;
   font-style: italic;
   font-weight: 550;
   font-size: 24px;
   color: #000;
 }
-
-.author {
+.reviews .author {
   margin: 10px 0 0 0;
   font-size: 18px;
   font-weight: 500;
   font-style: normal;
 }
-
-.quote-container {
+.reviews .quote-container {
   display: flex;
   flex-direction: column;
   margin: 0;
+}
+.reviews .reviewDesktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .reviews {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .reviews .reviewDesktop {
+    display: flex;
+  }
 }
 
 .panel {
