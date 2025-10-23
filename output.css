@@ -20,7 +20,7 @@ header h1 {
   color: white;
   width: 78px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   margin-left: 10px;
 }
 
@@ -36,7 +36,7 @@ nav.desktopLinks ul {
 nav.desktopLinks li a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 20px;
 }
 nav.desktopLinks li a:hover {
@@ -131,6 +131,12 @@ nav.desktopLinks li a:hover {
     margin-top: -33px;
     justify-content: center;
   }
+  .buttons .btn1 {
+    order: 2;
+  }
+  .buttons .btn2 {
+    order: 1;
+  }
   .buttons .btn2 {
     background-color: #E3170A;
     font-family: "Roboto";
@@ -165,14 +171,14 @@ nav.desktopLinks li a:hover {
 .reviews .quote {
   margin: 20px 0 0 0;
   font-style: italic;
-  font-weight: 550;
+  font-weight: 400;
   font-size: 24px;
   color: #000;
 }
 .reviews .author {
   margin: 10px 0 0 0;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
 }
 .reviews .quote-container {
@@ -201,7 +207,7 @@ nav.desktopLinks li a:hover {
 }
 .panel h1 {
   font-size: 32px;
-  font-weight: 570;
+  font-weight: 400;
   margin-top: 60px;
 }
 
@@ -232,11 +238,13 @@ nav.desktopLinks li a:hover {
 .cardContent h3 {
   margin: 0;
   font-size: 18px;
-  color: #222;
+  font-weight: 400;
+  color: black;
 }
 .cardContent p {
   font-size: 14px;
-  color: #555;
+  font-weight: 400;
+  color: black;
   margin-bottom: 15px;
   line-height: 1.4;
 }

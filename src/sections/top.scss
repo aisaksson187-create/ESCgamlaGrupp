@@ -63,6 +63,15 @@
         margin-top: -33px;
         justify-content: center;
 
+        .btn1 {
+            order: 2;
+        }
+
+        .btn2 {
+            order: 1;
+        }
+
+
         .btn2 {
             background-color: #E3170A;
             font-family: "Roboto";
