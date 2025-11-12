@@ -1,19 +1,19 @@
 const menuBtn = document.querySelector("#menuBtn")
-const mobileMenu = document.querySelector("#mobileMenu")
+const mainNav = document.querySelector("#mainNav")
 const closeBtn = document.querySelector("#closeBtn")
 const overlay = document.querySelector("#overlay");
 const filterBtn = document.querySelector('.filterBtn');
 
 menuBtn.addEventListener("click",
     function () {
-        mobileMenu.classList.toggle("active");
-        overlay.classList.toggle("active");
+        mainNav.classList.add("active");
+        overlay.classList.add("active");
     }
 )
 
 closeBtn.addEventListener("click",
     function () {
-        mobileMenu.classList.remove("active");
+        mainNav.classList.remove("active");
         overlay.classList.remove("active");
     }
 )
