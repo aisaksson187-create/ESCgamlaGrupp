@@ -4,6 +4,9 @@ const closeBtn = document.querySelector("#closeBtn")
 const overlay = document.querySelector("#overlay");
 const filterBtn = document.querySelector('.filterBtn');
 
+const btn1 = document.querySelector('.btn1');
+const btn2 = document.querySelector('btn2');
+
 menuBtn.addEventListener("click",
     function () {
         mainNav.classList.add("active");
@@ -17,6 +20,10 @@ closeBtn.addEventListener("click",
         overlay.classList.remove("active");
     }
 )
+
+function loadChallengesPage() {
+    window.location.href = 'OurChallenges.html';
+}
 
 /* --------------------- Handle Filter Challenges ------------------------- */
 document.addEventListener('DOMContentLoaded', function() {
