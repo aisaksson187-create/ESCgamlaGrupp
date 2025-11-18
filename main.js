@@ -67,120 +67,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Tag buttons toggle functionality
-        const tagButtons = container.querySelectorAll('.filterTags');
-        tagButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.toggle('active');
-                applyFilters(); // Apply filters immediately when tags change
-            });
-        });
-        
-        // Star rating functionality
-        const stars = container.querySelectorAll('.star');
-        let currentRating = 0;
-        
-        stars.forEach((star, index) => {
-            star.addEventListener('click', function() {
-                currentRating = index + 1;
-                updateStars();
-                applyFilters(); // Apply filters immediately when rating changes
-            });
-        });
-        
-        function updateStars() {
-            stars.forEach((star, index) => {
-                if (index < currentRating) {
-                    star.classList.add('selected');
-                } else {
-                    star.classList.remove('selected');
-                }
-            });
-        }
-        
         // Close button functionality
         container.querySelector('#closeFilter').addEventListener('click', function() {
             filterContainer.innerHTML = '';
             filterBtn.style.display = "block";
             showAllCards(); // Show all cards when closing filter
         });
-        
-        // Search input functionality - apply filters as user types
-        const searchInput = container.querySelector('.search-input');
-        let searchTimeout;
-        searchInput.addEventListener('input', function(e) {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                applyFilters(); // Apply filters after user stops typing
-            }, 300);
-        });
-        
-        // Apply filters function
-        function applyFilters() {
-            const selectedTypes = Array.from(container.querySelectorAll('.filter-checkbox:checked'))
-                .map(checkbox => checkbox.dataset.type);
-            const selectedTags = Array.from(container.querySelectorAll('.filterTags.active'))
-                .map(btn => btn.dataset.tag);
-            const rating = currentRating;
-            const searchTerm = container.querySelector('.search-input').value.toLowerCase();
-            
-            console.log('Applying filters:', {
-                types: selectedTypes,
-                tags: selectedTags,
-                rating: rating,
-                search: searchTerm
-            });
-            
-            filterCards(selectedTypes, selectedTags, rating, searchTerm);
-        }
-    }
     
-    function filterCards(types, tags, rating, searchTerm) {
-        const cards = document.querySelectorAll('.card');
-        
-        cards.forEach(card => {
-            let shouldShow = true;
-            
-            // Filter by type (online/onsite)
-            const cardTitle = card.querySelector('h3').textContent.toLowerCase();
-            if (types.length > 0) {
-                const hasOnline = types.includes('online') && cardTitle.includes('online');
-                const hasOnsite = types.includes('onsite') && cardTitle.includes('on-site');
-                if (!hasOnline && !hasOnsite) {
-                    shouldShow = false;
-                }
-            }
-            
-            // Filter by tags (you would need to add data attributes to your cards)
-            if (tags.length > 0 && shouldShow) {
-                // This would require adding data-tag attributes to your cards
-                // For now, we'll just show all cards if tags are selected
-                // shouldShow = tags.some(tag => card.dataset.tags?.includes(tag));
-            }
-            
-            // Filter by rating
-            if (rating > 0 && shouldShow) {
-                const cardStars = card.querySelectorAll('.fa-solid.fa-star').length;
-                if (cardStars < rating) {
-                    shouldShow = false;
-                }
-            }
-            
-            // Filter by search term
-            if (searchTerm && shouldShow) {
-                const cardText = card.textContent.toLowerCase();
-                if (!cardText.includes(searchTerm)) {
-                    shouldShow = false;
-                }
-            }
-            
-            // Show or hide the card
-            if (shouldShow) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
     }
     
     function showAllCards() {

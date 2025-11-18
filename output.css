@@ -359,6 +359,15 @@ header h1 {
   object-fit: cover;
 }
 
+.cardTypeIcon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 20px;
+  color: #242222;
+  z-index: 2;
+}
+
 .cardContent {
   padding: 15px;
   display: flex;
