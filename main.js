@@ -26,12 +26,6 @@ function loadChallengesPage() {
 }
 
 /* --------------------- API FUNCTIONS --------------------- */
-async function getChallenges() {
-    const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
-    const data = await res.json();
-    return data;
-}
-
 async function getAvailableTimes(challengeID) {
     const date = document.querySelector("#date").value;
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=' + date + '&challenge' + challengeID);
@@ -222,60 +216,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-window.addEventListener("DOMContentLoaded", async () => {
-    const data = await getChallenges();
-    data.challenges.forEach(challenge => {
-        createCard(challenge);
-    });
-
+window.addEventListener("DOMContentLoaded", () => {
     addBookbuttonListeners();
 });
-
-function createCard(challenge) {
-    const card = document.createElement("article");
-    const cardImage = document.createElement("img");
-    const cardContent = document.createElement("div");
-    const cardHeader = document.createElement("h3");
-    const rating = document.createElement("div");
-    const participants = document.createElement("span");
-    const description = document.createElement("p");
-    const bookButton = document.createElement("button");
-
-    card.classList.add("card");
-    cardContent.classList.add("cardContent");
-    rating.classList.add("rating");
-    participants.classList.add("participants");
-    bookButton.classList.add("bookThisRoom");
-    bookButton.id = "challenge_" + challenge.id;
-
-    cardImage.src = challenge.image;
-    cardHeader.innerText = challenge.title;
-    participants.innerText = challenge.minParticipants == challenge.maxParticipants ? challenge.minParticipants + " participants" : challenge.minParticipants + "-" + challenge.maxParticipants + " participants";
-    description.innerText = challenge.description;
-    bookButton.innerText = "Book this room";
-
-    for (i = 0; i < 5; i++) {
-        const star = document.createElement("span");
-        star.classList.add(i < challenge.rating ? "fa-solid" : "fa-regular", "fa-star");
-        rating.appendChild(star);
-    }
-
-    const cardContainer = document.querySelector(".cardContainer");
-
-    cardContainer.appendChild(card);
-    card.appendChild(cardImage);
-    card.appendChild(cardContent);
-    cardContent.appendChild(cardHeader);
-    cardContent.appendChild(rating);
-    rating.appendChild(participants);
-    cardContent.appendChild(description);
-    cardContent.appendChild(bookButton);
-
-    if (challenge.type == "online")
-        participants.innerText += " (networked)"
-    else
-        cardHeader.innerText += " (on-site)"
-}
 
 /* ----------------------- Book this room (Modal) ------------------------- */
 
