@@ -344,6 +344,7 @@ header h1 {
 }
 
 .card {
+  position: relative;
   flex: 0 0 350px;
   scroll-snap-align: center;
   background: white;
@@ -352,7 +353,7 @@ header h1 {
   overflow: hidden;
   transition: transform 0.2s ease;
 }
-.card .card:hover {
+.card:hover {
   transform: translateY(-5px);
 }
 .card img {
@@ -365,8 +366,8 @@ header h1 {
   position: absolute;
   top: 8px;
   right: 8px;
-  font-size: 20px;
-  color: #242222;
+  font-size: 40px;
+  color: #0f181d;
   z-index: 2;
 }
 
