@@ -17,12 +17,9 @@
     "url": "https://github.com/marieapellLernia/ESC/issues"
   },
   "homepage": "https://github.com/marieapellLernia/ESC#readme",
-<<<<<<< HEAD
+
   "devDependencies": {
     "sass": "^1.94.0"
-=======
-  "dependencies": {
-    "sass": "^1.94.1"
->>>>>>> origin/andreas/cardAPI
+
   }
 }
