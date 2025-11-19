@@ -25,6 +25,10 @@ function loadChallengesPage() {
     window.location.href = 'OurChallenges.html';
 }
 
+function loadMainPage() {
+    window.location.href = 'index.html';
+}
+
 /* --------------------- API FUNCTIONS --------------------- */
 async function getAvailableTimes(challengeID) {
     const date = document.querySelector("#date").value;
