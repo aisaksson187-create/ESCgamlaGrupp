@@ -224,12 +224,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function addBookbuttonListeners() {
     // Get all "Book this room" buttons - use class instead of ID since there are multiple
-    const bookButtons = document.querySelectorAll('.bookThisRoom');
+    const bookButtons = document.querySelectorAll('.BookThisRoom');
 
     // Add click event to each "Book this room" button
     bookButtons.forEach(button => {
         button.addEventListener("click", () => {
-            toggleModal(button.id.substring(10));
+            toggleModal(button.dataset.id);
         });
     });
 }
