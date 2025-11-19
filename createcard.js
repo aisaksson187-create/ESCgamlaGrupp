@@ -86,15 +86,6 @@ participants.innerText =
   }
 }
 
-//-------------------Open booking modal with correct challengeID-------------------//
-document.addEventListener('click', e => {
-  if (e.target.matches('.bookBtn')) {
-    const id = e.target.dataset.id;
-    console.log("You want to book challenge ID:", id); // Test to see if it works
-    openBookingModal(id);
-  }
-});
-
 //-------------------Render list (top 3 / all)-------------------//
 function renderList(container, list) {
   if (!container) return;
@@ -106,6 +97,10 @@ function renderList(container, list) {
     return;
   }
 
+  const modal = document.createElement("div");
+  modal.classList.add("modal");
+  modal.id = "bookRoomModal";
+  container.appendChild(modal);
   list.forEach(challenge => {
     createCard(challenge, container);
   });
@@ -136,6 +131,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (allCh) {
       renderList(allCh, challenges);
     }
+
+    addBookbuttonListeners();
 
   } catch (err) {
     console.error(err);
