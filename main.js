@@ -1,3 +1,6 @@
+import { getAvailableTimes } from "./api.js";
+import { postBooking } from "./api.js";
+
 const menuBtn = document.querySelector("#menuBtn")
 const mainNav = document.querySelector("#mainNav")
 const closeBtn = document.querySelector("#closeBtn")
@@ -27,31 +30,6 @@ function loadChallengesPage() {
 
 function loadMainPage() {
     window.location.href = 'index.html';
-}
-
-/* --------------------- API FUNCTIONS --------------------- */
-async function getAvailableTimes(challengeID) {
-    const date = document.querySelector("#date").value;
-    const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=' + date + '&challenge' + challengeID);
-    const data = await res.json();
-    return data;
-}
-
-async function postBooking(data) {
-    await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/reservations', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            challenge: data.challengeID,
-            name: data.customerName,
-            email: data.customerEmail,
-            date: data.bookedDate,
-            time: data.bookedTime,
-            participants: data.participants
-        })
-    });
 }
 
 /* --------------------- Handle Filter Challenges ------------------------- */
@@ -221,19 +199,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* ----------------------- Book this room (Modal) ------------------------- */
-
-function addBookbuttonListeners() {
-    // Get all "Book this room" buttons - use class instead of ID since there are multiple
-    const bookButtons = document.querySelectorAll('.BookThisRoom');
-
-    // Add click event to each "Book this room" button
-    bookButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            toggleModal(button.dataset.id);
-        });
-    });
-}
-
 async function toggleModal(buttonID) {
     try {
         const modal = document.querySelector("#bookRoomModal");
@@ -279,3 +244,9 @@ async function toggleModal(buttonID) {
         modal.innerHTML = '<p>Error loading booking form</p>';
     }
 }
+
+export {
+    loadChallengesPage,
+    loadMainPage,
+    toggleModal
+};
