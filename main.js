@@ -216,10 +216,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-    addBookbuttonListeners();
-});
-
 /* ----------------------- Book this room (Modal) ------------------------- */
 
 function addBookbuttonListeners() {
