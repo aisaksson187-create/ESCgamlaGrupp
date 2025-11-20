@@ -1,31 +1,96 @@
-// 4. Hämta checkboxarna
-const onlineCheckbox = document.querySelector('#online');
-const onsiteCheckbox = document.querySelector('#onsite');
+import { fetchChallenges, renderList } from './createcard.js';
 
-// 5. Koppla event listeners
-onlineCheckbox.addEventListener('change', applyFilters);
-onsiteCheckbox.addEventListener('change', applyFilters);
 
-// 6. Filtreringslogik
-function applyFilters() {
-  const online = onlineCheckbox.checked;
-  const onsite = onsiteCheckbox.checked;
+const allChallenges = await fetchChallenges();
+const container = document.querySelector('#allChallenges');
 
-  // inget valt → visa allt
-  if (!online && !onsite) {
-    renderChallenges(challenges);
-    return;
+renderList(container, allChallenges);
+
+/* All variables from DOM */
+const cbOnline = document.querySelector('.checkbox-online');
+const cbOnsite = document.querySelector('.checkbox-onsite');
+
+
+/* Eventlisteners */
+cbOnline.addEventListener('change', filter);
+cbOnsite.addEventListener('change', filter);
+
+
+function filter() {
+   let filtered = allChallenges;
+    const showOnline = cbOnline.checked;
+    const showOnsite = cbOnsite.checked;
+ /* Checkbox-filter */   
+  filtered = allChallenges.filter(challenge => {
+  if (showOnline && !showOnsite) {
+    return challenge.type === 'online';
   }
-
-  const filtered = challenges.filter(ch => {
-    if (online && ch.location === 'online') return true;
-    if (onsite && ch.location === 'on-site') return true;
-    return false;
-  
-    if (text === title)
+  if (!showOnline && showOnsite) {
+    return challenge.type === 'onsite';
+  }
+  if (showOnline && showOnsite) {
+    return true;
+  }
+  return true;
 });
 
-  
+/* Text-filter */
 
-  renderChallenges(filtered);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Tag-filter */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Star-filter  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  renderList(container, filtered)
 }
+

@@ -1,5 +1,5 @@
 /* --------------------- Load API Challenges ------------------------- */
-async function fetchChallenges() {
+export async function fetchChallenges() {
   const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges', {
     headers: { 'Accept': 'application/json' }
   });
@@ -96,7 +96,7 @@ document.addEventListener('click', e => {
 });
 
 //-------------------Render list (top 3 / all)-------------------//
-function renderList(container, list) {
+export function renderList(container, list) {
   if (!container) return;
 
   container.innerHTML = '';

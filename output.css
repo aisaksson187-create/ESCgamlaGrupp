@@ -793,7 +793,7 @@ footer .footerRight {
   padding-left: 35px;
   font-size: 14px;
 }
-.checkbox-label .filter-checkbox {
+.checkbox-label .checkbox-online, .checkbox-label .checkbox-onsite {
   position: absolute;
   opacity: 0;
 }
@@ -816,11 +816,11 @@ footer .footerRight {
   border-color: #36769D;
   background: #8ACFE5;
 }
-.checkbox-label .filter-checkbox:checked ~ .checkmark {
+.checkbox-label .checkbox-online:checked ~ .checkmark, .checkbox-label .checkbox-onsite:checked ~ .checkmark {
   background: #E3170A;
   border-color: #E3170A;
 }
-.checkbox-label .filter-checkbox:checked ~ .checkmark:after {
+.checkbox-label .checkbox-online:checked ~ .checkmark:after, .checkbox-label .checkbox-onsite:checked ~ .checkmark:after {
   display: block;
   left: 6px;
   top: 2px;
