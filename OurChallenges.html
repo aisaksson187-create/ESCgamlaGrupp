@@ -48,15 +48,78 @@
     <section class="challengesFilter">
         <h1>Our challenges</h1>
         <button class="filterBtn">Filter challenges</button>
-         <div id="filterContainer"></div>
+        <div id="filterContainer"></div>
     </section>
-        
-<section class="panel">
-    <div class="cardContainer" id="allChallenges">
-        <div id="bookRoomModal" class="modal"></div>
+
+
+    <div class="filter-interface">
+
+        <h2 class="filter-title">Filter challenges</h2>
+
+        <button id="closeFilter" class="close-btn">X</button>
+
+        <div class="filter-section type">
+            <h3>By type</h3>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-type="online">
+                    <span class="checkmark"></span>
+                    Include online challenges
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-type="onsite">
+                    <span class="checkmark"></span>
+                    Include on-site challenges
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-section rating">
+            <h3>By rating</h3>
+            <div class="star-container">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <div class="rating-text">to</div>
+            <div class="star-container">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+
+        </div>
+
+        <div class="filter-section tags">
+            <h3>By tags</h3>
+            <div class="tags-container">
+                <button class="filterTags" data-tag="web">Web</button>
+                <button class="filterTags" data-tag="linux">Linux</button>
+                <button class="filterTags" data-tag="cryptography">Cryptography</button>
+                <button class="filterTags" data-tag="coding">Coding</button>
+                <button class="filterTags" data-tag="other">Some other tag</button>
+                <button class="filterTags" data-tag="final">A final tag</button>
+            </div>
+        </div>
+
+        <div class="filter-section search">
+            <h3>Search by keyword</h3>
+            <input type="text" class="search-input" placeholder="Start typing to filter">
+        </div>
+
     </div>
-</section>
-   
+
+    <section class="panel">
+        <div class="cardContainer" id="allChallenges">
+            <div id="bookRoomModal" class="modal"></div>
+        </div>
+    </section>
+
     <footer>
         <div class="footerLeft">
             <h4>[Esc] Hacker Escape Rooms</h4>
@@ -89,8 +152,9 @@
         </div>
     </footer>
 
-    <script src='main.js'></script>
-    <script src='createcard.js'></script>
+    <script type="module" src='main.js'></script>
+    <script type="module" src='createcard.js'></script>
+    <script type="module" src='filter.js'></script>
 </body>
 
 </html>

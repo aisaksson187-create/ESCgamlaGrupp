@@ -756,13 +756,13 @@ footer .footerRight {
 .star-container {
   display: flex;
   gap: 6px;
-  align-items: center;
 }
 
 .rating-text {
   margin-top: 0;
   font-size: 12px;
   color: #011827;
+  margin-left: 58px;
 }
 
 .close-btn {
@@ -861,7 +861,7 @@ footer .footerRight {
   color: #B6BDB5;
   transition: 0.2s;
 }
-.star:hover, .star.selected {
+.star:hover, .star.active {
   color: #E3170A;
 }
 

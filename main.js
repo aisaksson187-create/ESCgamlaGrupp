@@ -81,11 +81,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add functionality
             addFilterFunctionality(filterDiv);
 
+
         } catch (error) {
             console.error('Error loading filter interface:', error);
             filterDiv.innerHTML = '<p>Error loading filters</p>';
         }
     });
+
+
 
     function addFilterFunctionality(container) {
         // Checkbox functionality
@@ -95,14 +98,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 applyFilters(); // Apply filters immediately when checkbox changes
             });
         });
-        
+
         // Close button functionality
         container.querySelector('#closeFilter').addEventListener('click', function () {
             filterContainer.innerHTML = '';
             filterBtn.style.display = "block";
             showAllCards(); // Show all cards when closing filter
         });
-    
+
     }
 
     function showAllCards() {
