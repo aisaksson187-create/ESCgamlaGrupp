@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* --------------------- Load API Challenges ------------------------- */
 export async function fetchChallenges() {
   const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges', {
@@ -11,6 +12,10 @@ export async function fetchChallenges() {
   const data = await res.json();
   return data.challenges;
 }
+=======
+import { fetchChallenges } from "./api.js";
+import { toggleModal } from "./main.js";
+>>>>>>> william/convertToModules
 
 //-------------------Create card-------------------//
 function createCard(challenge, container) {
@@ -106,6 +111,19 @@ export function renderList(container, list) {
   });
 }
 
+//------------Add click listeners to the card buttons------------//
+function addBookbuttonListeners() {
+    // Get all "Book this room" buttons - use class instead of ID since there are multiple
+    const bookButtons = document.querySelectorAll('.BookThisRoom');
+
+    // Add click event to each "Book this room" button
+    bookButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            toggleModal(button.dataset.id);
+        });
+    });
+}
+
 //-------------------Init when DOM is built-------------------//
 document.addEventListener('DOMContentLoaded', async () => {
   const popularCh = document.getElementById('popularChallenges');
@@ -146,3 +164,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 });
+
+export {
+  fetchChallenges
+};
