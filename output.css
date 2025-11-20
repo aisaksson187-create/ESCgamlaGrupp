@@ -712,6 +712,10 @@ footer .footerRight {
 }
 
 .filter-interface {
+  display: none;
+}
+
+.filter-interface.active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;

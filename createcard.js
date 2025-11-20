@@ -1,16 +1,6 @@
-/* --------------------- Load API Challenges ------------------------- */
-async function fetchChallenges() {
-  const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges', {
-    headers: { 'Accept': 'application/json' }
-  });
 
-  if (!res.ok) {
-    throw new Error(res.status + ' Could not load challenges ' + res.statusText);
-  }
-
-  const data = await res.json();
-  return data.challenges;
-}
+import { toggleModal } from "./main.js";
+import {fetchChallenges} from './api.js';
 
 //-------------------Create card-------------------//
 function createCard(challenge, container) {
