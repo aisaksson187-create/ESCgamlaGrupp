@@ -39,68 +39,6 @@ logo.addEventListener("click", () => {
     window.location.href = 'index.html';
 });
 
-/* --------------------- Handle Filter Challenges ------------------------- */
-document.addEventListener('DOMContentLoaded', function () {
-    const filterBtn = document.querySelector('.filterBtn');
-    const filterContainer = document.getElementById('filterContainer');
-    const cards = document.querySelectorAll('.card');
-
-    filterBtn.addEventListener("click", async function () {
-        // Toggle filter interface
-        if (filterContainer.innerHTML !== '') {
-            filterContainer.innerHTML = '';
-            return;
-        }
-
-        // Create container
-        const filterDiv = document.createElement("div");
-        filterContainer.appendChild(filterDiv);
-
-        try {
-            // Load external HTML
-            filterBtn.style.display = "none";
-            const response = await fetch('filterInterface.html');
-            const html = await response.text();
-            filterDiv.innerHTML = html;
-
-            // Add functionality
-            addFilterFunctionality(filterDiv);
-
-
-        } catch (error) {
-            console.error('Error loading filter interface:', error);
-            filterDiv.innerHTML = '<p>Error loading filters</p>';
-        }
-    });
-
-
-
-    function addFilterFunctionality(container) {
-        // Checkbox functionality
-        const checkboxes = container.querySelectorAll('.filter-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                applyFilters(); // Apply filters immediately when checkbox changes
-            });
-        });
-
-        // Close button functionality
-        container.querySelector('#closeFilter').addEventListener('click', function () {
-            filterContainer.innerHTML = '';
-            filterBtn.style.display = "block";
-            showAllCards(); // Show all cards when closing filter
-        });
-
-    }
-
-    function showAllCards() {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.style.display = 'block';
-        });
-    }
-});
-
 /* ----------------------- Book this room (Modal) ------------------------- */
 async function toggleModal(buttonID) {
     try {
@@ -147,10 +85,7 @@ async function toggleModal(buttonID) {
         modal.innerHTML = '<p>Error loading booking form</p>';
     }
 }
-<<<<<<< HEAD
-=======
 
 export {
     toggleModal
 };
->>>>>>> william/convertToModules
