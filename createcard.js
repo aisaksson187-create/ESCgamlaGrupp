@@ -1,16 +1,5 @@
-/* --------------------- Load API Challenges ------------------------- */
-async function fetchChallenges() {
-  const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges', {
-    headers: { 'Accept': 'application/json' }
-  });
-
-  if (!res.ok) {
-    throw new Error(res.status + ' Could not load challenges ' + res.statusText);
-  }
-
-  const data = await res.json();
-  return data.challenges;
-}
+import { fetchChallenges } from "./api.js";
+import { toggleModal } from "./main.js";
 
 //-------------------Create card-------------------//
 function createCard(challenge, container) {
@@ -104,6 +93,19 @@ function renderList(container, list) {
   list.forEach(challenge => {
     createCard(challenge, container);
   });
+}
+
+//------------Add click listeners to the card buttons------------//
+function addBookbuttonListeners() {
+    // Get all "Book this room" buttons - use class instead of ID since there are multiple
+    const bookButtons = document.querySelectorAll('.BookThisRoom');
+
+    // Add click event to each "Book this room" button
+    bookButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            toggleModal(button.dataset.id);
+        });
+    });
 }
 
 //-------------------Init when DOM is built-------------------//
