@@ -1,4 +1,5 @@
-import { fetchChallenges, renderList } from './createcard.js';
+import {renderList} from './createcard.js';
+import {fetchChallenges} from './api.js';
 
 
 const allChallenges = await fetchChallenges();

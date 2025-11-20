@@ -1,4 +1,4 @@
-async function fetchChallenges() {
+export async function fetchChallenges() {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges', {
         headers: { 'Accept': 'application/json' }
     });
@@ -11,7 +11,7 @@ async function fetchChallenges() {
     return data.challenges;
 }
 
-async function getAvailableTimes(challengeID) {
+export async function getAvailableTimes(challengeID) {
     const date = document.querySelector("#date").value;
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=' + date + '&challenge' + challengeID, {
         headers: { 'Accept': 'application/json' }
@@ -25,7 +25,7 @@ async function getAvailableTimes(challengeID) {
     return data;
 }
 
-async function postBooking(data) {
+export async function postBooking(data) {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/reservations', {
         method: 'POST',
         headers: {
@@ -45,9 +45,3 @@ async function postBooking(data) {
         throw new Error(res.status + ' Could not upload booking data ' + res.statusText);
     }
 }
-
-export {
-    fetchChallenges,
-    getAvailableTimes,
-    postBooking
-};
