@@ -148,7 +148,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 });
-
-export {
-  fetchChallenges
-};

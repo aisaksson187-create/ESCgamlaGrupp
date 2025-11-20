@@ -40,7 +40,7 @@ logo.addEventListener("click", () => {
 });
 
 /* ----------------------- Book this room (Modal) ------------------------- */
-async function toggleModal(buttonID) {
+export async function toggleModal(buttonID) {
     try {
         const modal = document.querySelector("#bookRoomModal");
 
@@ -85,7 +85,3 @@ async function toggleModal(buttonID) {
         modal.innerHTML = '<p>Error loading booking form</p>';
     }
 }
-
-export {
-    toggleModal
-};
