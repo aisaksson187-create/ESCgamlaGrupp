@@ -1,6 +1,8 @@
 import { getAvailableTimes } from "./api.js";
 import { postBooking } from "./api.js";
 
+const logo = document.querySelector(".logo");
+const buttonGroups = document.querySelectorAll(".buttons");
 const menuBtn = document.querySelector("#menuBtn")
 const mainNav = document.querySelector("#mainNav")
 const closeBtn = document.querySelector("#closeBtn")
@@ -24,13 +26,18 @@ closeBtn.addEventListener("click",
     }
 )
 
-function loadChallengesPage() {
-    window.location.href = 'OurChallenges.html';
-}
+buttonGroups.forEach(buttonGroup => {
+    const buttons = buttonGroup.children;
+    for(let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", () => {
+            window.location.href = 'OurChallenges.html';
+        });
+    }
+});
 
-function loadMainPage() {
+logo.addEventListener("click", () => {
     window.location.href = 'index.html';
-}
+});
 
 /* --------------------- Handle Filter Challenges ------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
@@ -246,7 +253,5 @@ async function toggleModal(buttonID) {
 }
 
 export {
-    loadChallengesPage,
-    loadMainPage,
     toggleModal
 };
