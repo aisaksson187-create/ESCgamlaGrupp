@@ -12,7 +12,7 @@ const starMin = document.querySelectorAll('.rating .star-container:first-of-type
 const starMax = document.querySelectorAll('.rating .star-container:last-of-type .star');
 
 
-let minRating = 1;
+let minRating = 0;
 let maxRating = 5;
 
 
@@ -26,6 +26,14 @@ filterTags.forEach(tag => {
 
 starMin.forEach((star, index) => {
     star.addEventListener('click', () => {
+
+          if (minRating === index + 1) {
+            minRating = 0; 
+            markStars(starMin, minRating);
+            filter();
+            return;
+        }
+
         minRating = index + 1;
         markStars(starMin, minRating);
         filter();
@@ -34,6 +42,13 @@ starMin.forEach((star, index) => {
 
 starMax.forEach((star, index) => {
     star.addEventListener('click', () => {
+
+           if (maxRating === index + 1) {
+            maxRating = 0;   
+            markStars(starMax, maxRating);
+            filter();
+            return;
+        }
         maxRating = index + 1;
         markStars(starMax, maxRating);
         filter();
