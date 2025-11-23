@@ -2,7 +2,6 @@ import { fetchChallenges } from './api.js';
 import { renderList } from './createcard.js';
 
 const allChallenges = await fetchChallenges();
-console.log(allChallenges[0]);
 const container = document.querySelector('#allChallenges');
 
 renderList(container, allChallenges);
