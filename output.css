@@ -247,6 +247,22 @@ header h1 {
   cursor: pointer;
 }
 
+.btn1::before,
+.btn2::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.btn1::before {
+  content: "\f015";
+}
+
+.btn2::before {
+  content: "\e163";
+}
+
 @media (min-width: 768px) {
   .top img {
     height: 500px;
