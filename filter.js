@@ -2,14 +2,6 @@ import { fetchChallenges } from './api.js';
 import { renderList } from './createcard.js';
 
 const allChallenges = await fetchChallenges();
-const allLabels = new Set();  
-allChallenges.forEach(ch => {
-    if (Array.isArray(ch.labels)) {
-        ch.labels.forEach(label => allLabels.add(label));
-    }
-});
-
-console.log("ALL TAGS I API:T:", [...allLabels]);
 const container = document.querySelector('#allChallenges');
 
 renderList(container, allChallenges);
