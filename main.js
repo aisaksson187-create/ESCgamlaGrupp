@@ -9,9 +9,6 @@ const closeBtn = document.querySelector("#closeBtn")
 const overlay = document.querySelector("#overlay");
 const filterBtn = document.querySelector('.filterBtn');
 
-const btn1 = document.querySelector('.btn1');
-const btn2 = document.querySelector('btn2');
-
 menuBtn.addEventListener("click",
     function () {
         mainNav.classList.add("active");
