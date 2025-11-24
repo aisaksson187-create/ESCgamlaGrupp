@@ -37,7 +37,7 @@
     grid-template-rows: auto auto;
     gap: 25px;
 
-    width:80%;
+    width: 80%;
     margin: 0 auto;
     padding: 25px;
 
@@ -83,7 +83,7 @@
 .star-container {
     display: flex;
     gap: 6px;
-    
+
 }
 
 .rating-text {
@@ -239,5 +239,114 @@
         font-size: 16px;
         font-weight: 600;
         color: #011827;
+    }
+}
+
+
+@media (max-width: 999px) {
+
+    .challengesFilter {
+        padding: 12px 8px;
+
+        h1 {
+            font-size: 20px;
+        }
+
+        .filterBtn {
+            margin-bottom: 12px;
+            font-size: 20px;
+            width: 308px;
+            height: 66px;
+        }
+    }
+
+
+    .filter-interface {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 14px;
+        width: 95%;
+        padding: 14px;
+        box-sizing: border-box;
+        border-width: 1px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+
+    .filter-interface .filter-section,
+    .filter-interface .filter-section.type,
+    .filter-interface .filter-section.rating,
+    .filter-interface .filter-section.tags,
+    .filter-interface .filter-section.search {
+        grid-column: 1 / -1;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .filter-section.search {
+        display: flex;
+        justify-content: center;
+    }
+
+    .filter-section.search .search-input,
+    .filter-interface .search-input {
+        width: 100%;
+        max-width: 720px;
+        margin-top: 15px;
+        box-sizing: border-box;
+        height: 40px;
+    }
+
+
+    .filter-section.rating {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .rating-text {
+            margin-left: 0;
+            margin-top: 6px;
+            font-size: 13px;
+        }
+
+        .star-container {
+            justify-content: flex-start;
+        }
+    }
+
+
+    .filter-section.tags .filterTags {
+        display: inline-flex;
+        flex-wrap: wrap;
+        margin: 6px 6px 0 0;
+    }
+
+    .checkbox-group {
+        gap: 10px;
+    }
+
+    .close-btn {
+        top: 12px;
+        right: 12px;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .filterBtn {
+        display: inline-block;
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+        margin: 0 auto 12px;
+        padding: 10px 16px;
+    }
+
+    .filter-section h3 {
+        font-size: 15px;
+        margin-bottom: 6px;
     }
 }
