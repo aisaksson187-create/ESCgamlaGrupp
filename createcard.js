@@ -1,16 +1,5 @@
-/* --------------------- Load API Challenges ------------------------- */
-async function fetchChallenges() {
-  const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges', {
-    headers: { 'Accept': 'application/json' }
-  });
-
-  if (!res.ok) {
-    throw new Error(res.status + ' Could not load challenges ' + res.statusText);
-  }
-
-  const data = await res.json();
-  return data.challenges;
-}
+import { fetchChallenges } from "./api.js";
+import { toggleModal } from "./main.js";
 
 //-------------------Create card-------------------//
 function createCard(challenge, container) {
@@ -86,17 +75,8 @@ participants.innerText =
   }
 }
 
-//-------------------Open booking modal with correct challengeID-------------------//
-document.addEventListener('click', e => {
-  if (e.target.matches('.bookBtn')) {
-    const id = e.target.dataset.id;
-    console.log("You want to book challenge ID:", id); // Test to see if it works
-    openBookingModal(id);
-  }
-});
-
 //-------------------Render list (top 3 / all)-------------------//
-function renderList(container, list) {
+export function renderList(container, list) {
   if (!container) return;
 
   container.innerHTML = '';
@@ -106,9 +86,26 @@ function renderList(container, list) {
     return;
   }
 
+  const modal = document.createElement("div");
+  modal.classList.add("modal");
+  modal.id = "bookRoomModal";
+  container.appendChild(modal);
   list.forEach(challenge => {
     createCard(challenge, container);
   });
+}
+
+//------------Add click listeners to the card buttons------------//
+function addBookbuttonListeners() {
+    // Get all "Book this room" buttons - use class instead of ID since there are multiple
+    const bookButtons = document.querySelectorAll('.BookThisRoom');
+
+    // Add click event to each "Book this room" button
+    bookButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            toggleModal(button.dataset.id);
+        });
+    });
 }
 
 //-------------------Init when DOM is built-------------------//
@@ -136,6 +133,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (allCh) {
       renderList(allCh, challenges);
     }
+
+    addBookbuttonListeners();
 
   } catch (err) {
     console.error(err);
