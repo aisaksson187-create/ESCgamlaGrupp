@@ -1,5 +1,6 @@
-import { fetchChallenges } from "./api.js";
+
 import { toggleModal } from "./main.js";
+import {fetchChallenges} from './api.js';
 
 //-------------------Create card-------------------//
 function createCard(challenge, container) {

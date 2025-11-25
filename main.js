@@ -32,10 +32,6 @@ buttonGroups.forEach(buttonGroup => {
     }
 });
 
-logo.addEventListener("click", () => {
-    window.location.href = 'index.html';
-});
-
 /* ----------------------- Book this room (Modal) ------------------------- */
 export async function toggleModal(buttonID) {
     try {

@@ -1,11 +1,34 @@
-import { fetchChallenges } from './api.js';
 import { renderList } from './createcard.js';
+import { fetchChallenges } from './api.js';
+
 
 const allChallenges = await fetchChallenges();
 const container = document.querySelector('#allChallenges');
 
 renderList(container, allChallenges);
 
+/* All variables from DOM */
+const cbOnline = document.querySelector('.checkbox-online');
+const cbOnsite = document.querySelector('.checkbox-onsite');
+const textInput = document.querySelector('.search-input')
+const filterBtn = document.querySelector('.filterBtn');
+const filterInterface = document.querySelector('.filter-interface');
+const closeBtn = document.querySelector('.close-btn');
+
+
+
+/* Eventlisteners */
+cbOnline.addEventListener('change', filter);
+cbOnsite.addEventListener('change', filter);
+textInput.addEventListener('input', filter);
+
+filterBtn.addEventListener('click', () => {
+    filterInterface.classList.add('active');
+} );
+
+closeBtn.addEventListener('click', () => {
+    filterInterface.classList.remove('active');
+} );
 
 const filterTags = document.querySelectorAll('.filterTags');
 const starMin = document.querySelectorAll('.rating .star-container:first-of-type .star');
@@ -61,63 +84,36 @@ function markStars(stars, count) {
     });
 }
 
-
 function filter() {
- let filtered = allChallenges;
+    let filtered = allChallenges;
+    const showOnline = cbOnline.checked;
+    const showOnsite = cbOnsite.checked;
+    const searchText = textInput.value.toLowerCase();
+   
+    /* Checkbox-filter */
+    filtered = filtered.filter(challenge => {
+        if (showOnline && !showOnsite) {
+            return challenge.type === 'online';
+        }
+        if (!showOnline && showOnsite) {
+            return challenge.type === 'onsite';
+        }
+        if (showOnline && showOnsite) {
+            return true;
+        }
+        return true;
+    });
 
+    /* Text-filter */
 
+    if (searchText) {
+        filtered = filtered.filter(challenge => {
+            const title = challenge.title.toLowerCase();
+            const desc = challenge.description.toLowerCase();
+            return title.includes(searchText) || desc.includes(searchText);}
+        )};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*text filter*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*tag*/
-
+    
     const activeTags = [];
     const activeElements = document.querySelectorAll('.filterTags.active');
 
@@ -148,27 +144,19 @@ function filter() {
     }
 
 
-
-
-    /*rating*/
     filtered = filtered.filter(challenge => {
         return challenge.rating >= minRating && challenge.rating <= maxRating;
     });
-    
-    renderList(container, filtered);
+
+    renderList(container, filtered)
+
 }
 
 
 
 
 
+    
 
 
-
-
-
-
-
-
-
-
+ 

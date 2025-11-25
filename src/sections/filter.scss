@@ -32,6 +32,11 @@
 }
 
 .filter-interface {
+    display: none;
+}
+
+
+.filter-interface.active {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
@@ -132,7 +137,7 @@
     padding-left: 35px;
     font-size: 14px;
 
-    .filter-checkbox {
+    .checkbox-online, .checkbox-onsite {
         position: absolute;
         opacity: 0;
     }
@@ -159,7 +164,7 @@
         background: #8ACFE5;
     }
 
-    .filter-checkbox:checked~.checkmark {
+    .checkbox-online:checked~.checkmark, .checkbox-onsite:checked~.checkmark {
         background: #E3170A;
         border-color: #E3170A;
 
