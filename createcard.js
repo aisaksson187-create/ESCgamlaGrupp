@@ -1,5 +1,6 @@
-import { fetchChallenges } from "./api.js";
+
 import { toggleModal } from "./main.js";
+import {fetchChallenges} from './api.js';
 
 //-------------------Create card-------------------//
 function createCard(challenge, container) {
@@ -76,7 +77,7 @@ participants.innerText =
 }
 
 //-------------------Render list (top 3 / all)-------------------//
-function renderList(container, list) {
+export function renderList(container, list) {
   if (!container) return;
 
   container.innerHTML = '';
