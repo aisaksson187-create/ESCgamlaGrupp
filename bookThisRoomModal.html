@@ -3,13 +3,13 @@
         <span class="close">&times;</span>
         <h2 class="bookedRoom-title">Book room</h2>
         <form id="bookingForm">
-        <p>What date would you like to come?</p>
+            <p>What date would you like to come?</p>
         <div class="form-group">
             <label for="name">Date</label>
-            <input type="data" id="date" name="date" required>            
-        </div>  
-        </form>
-        <button type="button" class="submit-btn next-btn" data-next="modal2">Search available times</button>
+            <input type="date" id="date" name="date" required>            
+         </div>  
+             <button type="button" class="submit-btn next-btn" data-next="modal2">Search available times</button>
+         </form>
     </div>
 </div>
 
@@ -28,11 +28,11 @@
             </div>
             <div class="form-group">
                 <label for="time">What time?</label>
-                <input type="time" id="time" name="time" required>
+                    <select name="time" id="time"></select>
             </div>
             <div class="form-group">
                 <label for="participants">How many participants?</label>
-                <input type="number" id="participants" name="participants" min="2" max="6" required>
+                <select id="participants" name="participants" required></select>
             </div>
             <button type="button" class="submit-btn next-btn" data-next="modal3">Submit booking</button>
         </form>
