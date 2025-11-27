@@ -17,7 +17,9 @@
     "url": "https://github.com/marieapellLernia/ESC/issues"
   },
   "homepage": "https://github.com/marieapellLernia/ESC#readme",
-  "dependencies": {
-    "sass": "^1.94.1"
+
+  "devDependencies": {
+    "sass": "^1.94.0"
+
   }
 }
