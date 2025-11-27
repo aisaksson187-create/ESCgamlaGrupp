@@ -19,6 +19,7 @@ const starMin = document.querySelectorAll('.rating .star-container:first-of-type
 const starMax = document.querySelectorAll('.rating .star-container:last-of-type .star');
 let minRating = 0;
 let maxRating = 5;
+markStars(starMax, maxRating);
 
 
 /* Eventlisteners */
@@ -75,8 +76,8 @@ function markStars(stars, count) {
 /* Main filter function */
 function filter() {
     let filtered = allChallenges;
-    
-     /* Checkbox-filter */
+
+    /* Checkbox-filter */
     const showOnline = cbOnline.checked;
     const showOnsite = cbOnsite.checked;
     const searchText = textInput.value.toLowerCase();
@@ -103,7 +104,7 @@ function filter() {
         )
     };
 
-/* Tag filter */
+    /* Tag filter */
     const activeTags = [];
     const activeElements = document.querySelectorAll('.filterTags.active');
 
@@ -126,9 +127,9 @@ function filter() {
         });
     }
 
-/* Star filter */
+    /* Star filter */
     filtered = filtered.filter(challenge => {
-        return challenge.rating >= minRating && challenge.rating <= maxRating;
+        return Math.round(challenge.rating) >= minRating && Math.round(challenge.rating <= maxRating);
     });
 
 
