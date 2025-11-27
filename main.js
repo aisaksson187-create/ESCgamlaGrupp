@@ -1,5 +1,6 @@
 import { getAvailableTimes } from "./api.js";
 import { postBooking } from "./api.js";
+import { bookingData, renderSlotsToHTML, nextPage, bookingRoomReservation } from "./modal.js";
 
 const logo = document.querySelector(".logo");
 const buttonGroups = document.querySelectorAll(".buttons");
@@ -33,7 +34,7 @@ buttonGroups.forEach(buttonGroup => {
 });
 
 /* ----------------------- Book this room (Modal) ------------------------- */
-export async function toggleModal(buttonID) {
+/*export async function toggleModal(buttonID) {
     try {
         const modal = document.querySelector("#bookRoomModal");
 
@@ -77,4 +78,18 @@ export async function toggleModal(buttonID) {
         console.error('Error loading Modal:', error);
         modal.innerHTML = '<p>Error loading booking form</p>';
     }
-}
+}*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create modal container if it doesn't exist
+    let modal = document.querySelector("#BookRoomModal");
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'bookRoomModal';
+        modal.className = 'modal';
+        document.body.appendChild(modal);
+    }
+    
+    // Event delegation on the container that holds the cards
+    document.addEventListener('click', (event) => bookingRoomReservation(event, modal));
+});

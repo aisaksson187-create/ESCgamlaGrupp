@@ -1,3 +1,4 @@
+//Changed the URL in the fetch method.
 export async function fetchChallenges() {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges', {
         headers: { 'Accept': 'application/json' }
@@ -11,37 +12,38 @@ export async function fetchChallenges() {
     return data.challenges;
 }
 
-export async function getAvailableTimes(challengeID) {
-    const date = document.querySelector("#date").value;
-    const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=' + date + '&challenge' + challengeID, {
-        headers: { 'Accept': 'application/json' }
-    });
+// Added parameter 'date' to the function
+export async function getAvailableTimes(date, challengeID) {
+    const res = await fetch(`https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${date}&challenge=${challengeID}`);
 
     if(!res.ok) {
         throw new Error(res.status + ' Could not fetch available times ' + res.statusText);
     }
 
-    const data = await res.json();
-    return data;
+    return await res.json();
+    
 }
 
-export async function postBooking(data) {
-    const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/reservations', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            challenge: data.challengeID,
-            name: data.customerName,
-            email: data.customerEmail,
-            date: data.bookedDate,
-            time: data.bookedTime,
-            participants: data.participants
-        })
-    });
-
-    if(!res.ok) {
-        throw new Error(res.status + ' Could not upload booking data ' + res.statusText);
+// Changed parameter from 'data' to 'bookingData'
+export async function postBooking(bookingData) {
+     try {
+        const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/reservations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                challenge: parseInt(bookingData.challengeId),
+                name: bookingData.fullName,
+                email: bookingData.email,
+                date: bookingData.date,
+                time: bookingData.time,
+                participants: parseInt(bookingData.participants)
+            }),
+        });
+        const resData = await res.json();
+        console.log(resData);
+    } catch (error) {
+        console.error('Booking failed:', error);
     }
 }
