@@ -522,6 +522,11 @@ header h1 {
     margin-bottom: 60px;
   }
 }
+@media (min-width: 1999px) {
+  .cardContainer {
+    max-width: 1640px;
+  }
+}
 .story {
   background-color: #011827;
   height: 500px;
