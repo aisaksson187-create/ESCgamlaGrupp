@@ -5,6 +5,8 @@ footer {
     flex-direction: column;
     display: flex;
     height: auto;
+    width: 100%;
+    box-sizing: border-box;
 
     h4 {
         font-size: 18px;

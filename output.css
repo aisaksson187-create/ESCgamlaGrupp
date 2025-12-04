@@ -522,6 +522,11 @@ header h1 {
     margin-bottom: 60px;
   }
 }
+@media (min-width: 1999px) {
+  .cardContainer {
+    max-width: 1640px;
+  }
+}
 .story {
   background-color: #021928;
   height: 500px;
@@ -677,6 +682,8 @@ footer {
   flex-direction: column;
   display: flex;
   height: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 footer h4 {
   font-size: 18px;
