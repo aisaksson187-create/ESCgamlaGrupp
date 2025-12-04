@@ -250,7 +250,7 @@ header h1 {
   cursor: pointer;
 }
 .buttons .btn2:hover {
-  background-color: #1d4f6e;
+  background-color: #720f08;
 }
 
 .btn3 {
@@ -471,7 +471,7 @@ header h1 {
   width: auto;
 }
 .cardContent button:hover {
-  background-color: #c92032;
+  background-color: #720f08;
 }
 
 .rating {
@@ -568,6 +568,7 @@ header h1 {
 .story button:hover {
   background-color: #8ACFE5;
   color: #021928;
+  border: 1px solid #021928;
 }
 
 @media (min-width: 768px) {
