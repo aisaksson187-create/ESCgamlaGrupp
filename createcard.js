@@ -34,7 +34,19 @@ participants.innerText =
     ? min + " participants"
     : min + "-" + max + " participants";
 
-  description.innerText = challenge.description;
+  if(challenge.description.length > 50) {
+    if(challenge.description[50] == ' ') {
+      description.innerText = challenge.description.substring(0, 51);
+    }
+    else {
+      const lastSpaceCharIndex = challenge.description.substring(0, 51).lastIndexOf(' ');
+      description.innerText = challenge.description.substring(0, lastSpaceCharIndex);
+    }
+    description.innerText += '...';
+  }
+  else {
+    description.innerText = challenge.description;
+  }
 
   bookButton.classList.add("BookThisRoom","bookBtn");
   bookButton.dataset.id = challenge.id;
