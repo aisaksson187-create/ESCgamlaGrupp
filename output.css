@@ -1071,7 +1071,8 @@ footer .footerRight {
   }
 }
 .modal {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -1079,6 +1080,7 @@ footer .footerRight {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 1s ease-in;
 }
 
 .modal-content {
