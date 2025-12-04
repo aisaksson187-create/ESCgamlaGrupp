@@ -408,10 +408,11 @@ header h1 {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .card img {
   width: 100%;
@@ -608,6 +609,9 @@ header h1 {
   margin: 0;
   cursor: pointer;
 }
+.promos .btn3:hover {
+  background-color: #287691;
+}
 .promos .btn4 {
   background-color: #E3170A;
   font-family: "Roboto";
@@ -624,6 +628,9 @@ header h1 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.promos .btn4:hover {
+  background-color: #720f08;
 }
 
 @media (min-width: 768px) and (max-width: 999px) {
