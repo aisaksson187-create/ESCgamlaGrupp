@@ -773,10 +773,19 @@ footer .footerRight {
     flex-direction: column;
     gap: 0;
   }
-  footer h4 {
+  footer ul a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  footer ul a:hover {
+    color: #8ACFE5;
+  }
+  footer ul h4 {
     margin-bottom: 5px;
   }
-  footer p {
+  footer ul p {
     margin-top: 0;
   }
 }
