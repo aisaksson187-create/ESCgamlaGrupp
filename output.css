@@ -1,5 +1,5 @@
 header {
-  background-color: #011827;
+  background-color: #021928;
   width: 100%;
   display: flex;
   padding: 15px;
@@ -54,7 +54,7 @@ header h1 {
   left: 3%;
   width: 94%;
   height: 94%;
-  background-color: #011827;
+  background-color: #021928;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -523,7 +523,7 @@ header h1 {
   }
 }
 .story {
-  background-color: #011827;
+  background-color: #021928;
   height: 500px;
   margin-top: 40px;
   display: flex;
@@ -671,7 +671,7 @@ header h1 {
   }
 }
 footer {
-  background-color: #011827;
+  background-color: #021928;
   padding: 30px;
   color: white;
   flex-direction: column;
@@ -780,7 +780,7 @@ footer .footerRight {
 }
 .challengesFilter h1 {
   text-align: center;
-  color: #011827;
+  color: #021928;
 }
 
 .filterBtn {
@@ -793,13 +793,13 @@ footer .footerRight {
   border-radius: 6px;
   border: 1px solid #8ACFE5;
   background-color: #8ACFE5;
-  color: #011827;
+  color: #021928;
   transition: all 0.2s ease;
 }
 .filterBtn:hover {
   background: #8ACFE5;
   border-color: #36769D;
-  color: #011827;
+  color: #021928;
 }
 
 .filter-interface {
@@ -817,7 +817,7 @@ footer .footerRight {
   border: 2px solid #B6BDB5;
   border-radius: 12px;
   background: #ffffff;
-  color: #011827;
+  color: #021928;
   position: relative;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -856,7 +856,7 @@ footer .footerRight {
 .rating-text {
   margin-top: 0;
   font-size: 12px;
-  color: #011827;
+  color: #021928;
   margin-left: 58px;
 }
 
@@ -977,7 +977,7 @@ footer .footerRight {
   margin-bottom: 8px;
   font-size: 16px;
   font-weight: 600;
-  color: #011827;
+  color: #021928;
 }
 
 @media (max-width: 999px) {
