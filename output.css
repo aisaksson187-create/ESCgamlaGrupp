@@ -229,6 +229,9 @@ header h1 {
   margin: 0;
   cursor: pointer;
 }
+.buttons .btn1:hover {
+  background-color: #287691;
+}
 .buttons .btn2 {
   background-color: transparent;
   font-family: "Roboto";
@@ -245,6 +248,9 @@ header h1 {
   justify-content: center;
   margin: 0;
   cursor: pointer;
+}
+.buttons .btn2:hover {
+  background-color: #1d4f6e;
 }
 
 .btn3 {
@@ -265,6 +271,9 @@ header h1 {
   margin: 0;
   cursor: pointer;
 }
+.btn3:hover {
+  background-color: #287691;
+}
 
 .btn4 {
   background-color: transparent;
@@ -282,6 +291,9 @@ header h1 {
   justify-content: center;
   margin: 0;
   cursor: pointer;
+}
+.btn4:hover {
+  background-color: #1d4f6e;
 }
 
 .btn1::before,
@@ -608,6 +620,9 @@ header h1 {
   margin: 0;
   cursor: pointer;
 }
+.promos .btn3:hover {
+  background-color: #287691;
+}
 .promos .btn4 {
   background-color: #E3170A;
   font-family: "Roboto";
@@ -624,6 +639,9 @@ header h1 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.promos .btn4:hover {
+  background-color: #720f08;
 }
 
 @media (min-width: 768px) and (max-width: 999px) {
