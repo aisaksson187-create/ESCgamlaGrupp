@@ -1186,6 +1186,7 @@ footer .footerRight {
 }
 
 .contactForm {
+  width: calc(100% - 54px);
   max-width: 532px;
   margin: 0 27px;
   display: flex;
@@ -1229,8 +1230,23 @@ footer .footerRight {
 
 .contactInfo {
   display: flex;
-  justify-content: space-between;
-  margin: 50px 110px;
+  flex-direction: column;
+  margin: 50px 27px;
+  gap: 20px;
+}
+@media (min-width: 749px) {
+  .contactInfo {
+    gap: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px 110px;
+  }
+}
+@media (min-width: 1279px) {
+  .contactInfo {
+    gap: 396px;
+    justify-content: center;
+  }
 }
 
 .contactLocationList, .contactOpenHoursList {
