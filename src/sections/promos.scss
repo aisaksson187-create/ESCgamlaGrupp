@@ -12,7 +12,6 @@ h3 {
     font-size: 32px;
     font-weight: 700;
     margin: 20px;
-    
 }
 
 p {
@@ -73,6 +72,7 @@ p {
             cursor: pointer;
 
                     &:hover {
+          &:hover {
           background-color: #720f08;
         }
         }

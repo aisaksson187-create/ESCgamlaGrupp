@@ -420,10 +420,11 @@ header h1 {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .card img {
   width: 100%;
@@ -1204,6 +1205,94 @@ footer .footerRight {
   background-color: #0056b3;
 }
 
+.storySection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+.storySection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.storySection p {
+  font-weight: 400;
+}
+
+.leadership {
+  margin-top: 2rem;
+  text-align: center;
+}
+.leadership h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.leadership .leaderCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+.leadership .leaderCard > div {
+  text-align: center;
+  padding: 1rem;
+}
+.leadership img {
+  height: 100px;
+  border-radius: 100px;
+  margin: 20px 0 1rem 0;
+  box-shadow: 6px 6px 12px rgb(2, 25, 40);
+}
+.leadership h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.leadership p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .storySection {
+    max-width: 50%;
+  }
+  .leadership .leaderCard {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+  }
+  .leadership .leaderCard > div {
+    text-align: center;
+    padding: 1rem;
+  }
+  .leadership img {
+    height: 100px;
+    border-radius: 100px;
+    margin: 20px 0 1rem 0;
+    box-shadow: 6px 6px 12px rgb(2, 25, 40);
+  }
+  .leadership h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    margin-left: 2rem;
+  }
+  .leadership p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    font-weight: 400;
+    max-width: 80%;
+    margin: 0;
+    text-align: left;
+    margin-left: 2rem;
+  }
+}
 body {
   font-family: "Roboto";
   font-weight: bold;
