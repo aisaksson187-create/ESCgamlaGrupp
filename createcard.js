@@ -2,6 +2,8 @@
 //import { toggleModal } from "./main.js";
 import {fetchChallenges} from './api.js';
 
+
+
 //-------------------Create card-------------------//
 function createCard(challenge, container) {
   if (!container) return;
@@ -60,6 +62,12 @@ participants.innerText =
   cardContent.appendChild(rating);
   cardContent.appendChild(description);
   cardContent.appendChild(bookButton);
+
+
+  // start animation after appending card
+  requestAnimationFrame(() => {
+    card.classList.add("show");
+});
 
   // --- Add label/image depending on online/on-site ---
   if (challenge.type === "online") {
