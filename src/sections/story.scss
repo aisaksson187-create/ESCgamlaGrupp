@@ -23,7 +23,13 @@
         font-weight: bold;
         font-family: "Roboto";
         font-size: 25px;
-    }
+        cursor: pointer;
+
+        &:hover {
+          background-color: #8ACFE5;
+          color: #021928;
+          border: 1px solid #021928;
+    }}
 }
 
 @media (min-width: 768px) {
