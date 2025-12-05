@@ -115,18 +115,32 @@ footer {
             }
         }
 
+        
+
         ul {
             flex-direction: column;
             gap: 0;
+
+        a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 20px;
+
+        &:hover {
+          color: #8ACFE5;
+        }
         }
 
         h4 {
             margin-bottom: 5px;
+            
         }
 
         p {
             margin-top: 0;
         }
+        
     }
 
-}
+}}
