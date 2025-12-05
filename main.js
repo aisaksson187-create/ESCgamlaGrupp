@@ -9,6 +9,7 @@ const mainNav = document.querySelector("#mainNav")
 const closeBtn = document.querySelector("#closeBtn")
 const overlay = document.querySelector("#overlay");
 const filterBtn = document.querySelector('.filterBtn');
+const storyBtn = document.querySelector('#storyBtn');
 
 menuBtn.addEventListener("click",
     function () {
@@ -33,6 +34,9 @@ buttonGroups.forEach(buttonGroup => {
     }
 });
 
+storyBtn.addEventListener("click", () => {
+    window.location.href = 'theStory.html';
+});
 /* ----------------------- Book this room (Modal) ------------------------- */
 
 document.addEventListener('DOMContentLoaded', function() {
