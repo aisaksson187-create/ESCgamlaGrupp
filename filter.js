@@ -40,29 +40,38 @@ filterTags.forEach(tag => {
 });
 starMin.forEach((star, index) => {
     star.addEventListener('click', () => {
+        const newValue = index + 1;
 
-        if (minRating === index + 1) {
+        if (minRating === newValue) {
             minRating = 0;
-            markStars(starMin, minRating);
-            filter();
-            return;
+        }
+        else {
+            minRating = newValue;
+
+            if (minRating > maxRating) {
+                maxRating = minRating;
+                markStars(starMax, maxRating);
+            }
         }
 
-        minRating = index + 1;
         markStars(starMin, minRating);
         filter();
     });
 });
 starMax.forEach((star, index) => {
     star.addEventListener('click', () => {
+        const newValue = index + 1;
 
-        if (maxRating === index + 1) {
+        if (maxRating === newValue) {
             maxRating = 0;
-            markStars(starMax, maxRating);
-            filter();
-            return;
         }
-        maxRating = index + 1;
+        else {
+            maxRating = newValue;
+            if (maxRating < minRating) {
+                minRating = maxRating;
+                markStars(starMin, minRating);
+            }
+        }
         markStars(starMax, maxRating);
         filter();
     });
