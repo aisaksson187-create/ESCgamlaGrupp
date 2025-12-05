@@ -8,6 +8,8 @@
 @use "sections/filter";
 @use 'sections/bookThisRoomModal';
 
+@use 'sections/contact.scss';
+
 body {
     font-family: "Roboto";
     font-weight: bold;
