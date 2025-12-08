@@ -105,9 +105,16 @@ async function nextPage(currentModalPage, nextModalPage, challengeId) {
     // Hide current modal and show next modal
     const currentModalPageEl = document.getElementById(currentModalPage);
     const nextModalPageEl = document.getElementById(nextModalPage);
-    
-    if (currentModalPageEl) currentModalPageEl.style.display = "none";
-    if (nextModalPageEl) nextModalPageEl.style.display = "block";
+
+    if (currentModalPageEl) {
+        currentModalPageEl.style.visibility = "hidden";
+        currentModalPageEl.style.opacity = "0";
+    }
+
+    if (nextModalPageEl) {
+        nextModalPageEl.style.visibility = "visible";
+        nextModalPageEl.style.opacity = "1";
+    }
     
     // handles the POST request. 
     if (nextModalPage === 'modal3') {
@@ -141,10 +148,14 @@ async function bookingRoomReservation(event, modal) {
                     return;
                 }    
                 modal.innerHTML = html;
-                modal.style.display = "block";
+                modal.classList.remove("show");
+                void modal.offsetWidth;
+                modal.classList.add("show");
+
                const modal1 = document.getElementById('modal1');
             if (modal1) {
-                modal1.style.display = "block";
+              modal1.style.opacity="1";
+              modal1.style.visibility="visible";
                 
                 // User cant select a past date
                 const dateInput = modal1.querySelector("#date");
@@ -219,7 +230,8 @@ async function bookingRoomReservation(event, modal) {
                 // Close modal 
                 closeBtns.forEach(closeBtn => {
                     closeBtn.addEventListener('click', function(){
-                        modal.style.display = "none";
+                       modal.classList.remove("show");
+                       setTimeout(() => {modal.innerHTML = "";}, 300);
                     });
                 });
 
@@ -245,7 +257,8 @@ async function bookingRoomReservation(event, modal) {
                 if (bookingForm2) {
                     bookingForm2.addEventListener('submit', function(e) {
                         e.preventDefault();
-                        modal.style.display = "none";
+                        modal.style.visibility = "hidden";
+                        modal.style.opacity="0";
                     });
                 }
                 
@@ -253,7 +266,8 @@ async function bookingRoomReservation(event, modal) {
                 console.error('Error loading Modal:', error);
                 if (modal) {
                     modal.innerHTML = '<p>Error loading booking form. Please try again.</p>';
-                    modal.style.display = "block";
+                    modal.style.visibility = "visible";
+                    modal.style.opacity="1";
                 }
             }
         }
