@@ -20,12 +20,16 @@ const starMax = document.querySelectorAll('.rating .star-container:last-of-type 
 let minRating = 0;
 let maxRating = 5;
 markStars(starMax, maxRating);
+const radioAnd = document.querySelector('#and');
+const radioOr = document.querySelector('#or');
 
 
 /* Eventlisteners */
 cbOnline.addEventListener('change', filter);
 cbOnsite.addEventListener('change', filter);
 textInput.addEventListener('input', filter);
+radioAnd.addEventListener('change', filter);
+radioOr.addEventListener('change', filter);
 filterBtn.addEventListener('click', () => {
     filterInterface.classList.add('active');
 });
@@ -116,6 +120,7 @@ function filter() {
     /* Tag filter */
     const activeTags = [];
     const activeElements = document.querySelectorAll('.filterTags.active');
+    const tagMode = radioAnd.checked ? 'and' : 'or';
 
     activeElements.forEach(tag => {
         activeTags.push(tag.dataset.tag);
@@ -125,6 +130,8 @@ function filter() {
             if (!challenge.labels || !Array.isArray(challenge.labels)) {
                 return false;
             }
+
+            if (tagMode === 'and') {
             for (let i = 0; i < activeTags.length; i++) {
                 let tag = activeTags[i];
 
@@ -133,6 +140,18 @@ function filter() {
                 }
             }
             return true;
+        }
+
+            else {
+                for (let i = 0; i < activeTags.length; i++) {
+                let tag = activeTags[i];
+
+                if (challenge.labels.includes(tag)) {
+                    return true;
+                }
+            }
+            return false;
+            }
         });
     }
 
