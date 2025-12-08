@@ -116,7 +116,6 @@ async function nextPage(currentModalPage, nextModalPage, challengeId) {
         backLink.addEventListener('click', function(){
             window.location.href = 'OurChallenges.html';
         });
-        //Object.keys(bookingData).forEach(key => {console.log(key, bookingData[key]);});
     }
 }
 
@@ -186,20 +185,20 @@ async function bookingRoomReservation(event, modal) {
                             }
                         });
 
-                        // Set participants list based on min/max from API
-                        const participantsSelect = modal.querySelector("#participants");
-                        if (participantsSelect && challengeTitle) {
-                            participantsSelect.innerHTML = "";
-
+                        // Participants based on min/max from API
+                        const participantsInput = modal.querySelector("#participants");
+                        if (participantsInput && challengeTitle) {
                             const min = challengeTitle.minParticipants;
                             const max = challengeTitle.maxParticipants;
 
-                            for (let i = min; i <= max; i++) {
-                                const option = document.createElement("option");
-                                option.value = i;
-                                option.textContent = `${i} participant${i > 1 ? "s" : ""}`;
-                                participantsSelect.appendChild(option);
-                            }
+                            participantsInput.min = min;
+                            participantsInput.max = max;
+                            participantsInput.value = min;
+
+                            participantsInput.addEventListener("input", () => {
+                                if (participantsInput.value > max) participantsInput.value = max;
+                                if (participantsInput.value < min) participantsInput.value = min;
+                            });
                         }
 
                         bookingData.challengeTitle = challengeTitle;

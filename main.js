@@ -34,9 +34,7 @@ buttonGroups.forEach(buttonGroup => {
     }
 });
 
-storyBtn.addEventListener("click", () => {
-    window.location.href = 'theStory.html';
-});
+
 /* ----------------------- Book this room (Modal) ------------------------- */
 
 document.addEventListener('DOMContentLoaded', function() {
