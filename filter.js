@@ -104,7 +104,7 @@ function filter() {
     });
 
     /* Text-input filter */
-    if (searchText) {
+    if (searchText && searchText.length >= 3) {
         filtered = filtered.filter(challenge => {
             const title = challenge.title.toLowerCase();
             const desc = challenge.description.toLowerCase();
