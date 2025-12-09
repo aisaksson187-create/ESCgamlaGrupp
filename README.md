@@ -12,4 +12,5 @@
 
 ### Cypress-Test
 * npm install cypress --save-dev
+* npm run dev
 * run cypress:open
