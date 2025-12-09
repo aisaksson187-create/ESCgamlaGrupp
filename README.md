@@ -1,5 +1,5 @@
-#Link to the project documentation
-https://docs.google.com/document/d/1opcmyHKRjd8NceqJEODWtD-pMucknHeoLLqPXXnXShU/edit?usp=sharing
+# Link to the project documentation
+* https://docs.google.com/document/d/1opcmyHKRjd8NceqJEODWtD-pMucknHeoLLqPXXnXShU/edit?usp=sharing
 
 
 ## Commands to execute for Vite and Cypress-Test
