@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     // Use Vite's default dev server port
-    baseUrl: 'http://localhost:3000',
+   
     
     // Update spec pattern
     specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
