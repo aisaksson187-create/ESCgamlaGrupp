@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --no-source-map src/main.scss output.css",
-    "watch-sass": "sass --watch --no-source-map src/main.scss output.css"
+    "watch-sass": "sass --watch --no-source-map src/main.scss output.css",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e:local": "cypress run",
+    "test:e2e:stage": "cross-env CYPRESS_BASE_URL=https://aisaksson187-create.github.io/ESCgamlaGrupp/ cypress run"
   },
   "repository": {
     "type": "git",
@@ -17,9 +21,9 @@
     "url": "https://github.com/marieapellLernia/ESC/issues"
   },
   "homepage": "https://github.com/marieapellLernia/ESC#readme",
-
   "devDependencies": {
+    "cross-env": "^10.1.0",
+    "cypress": "^15.10.0",
     "sass": "^1.94.0"
-
   }
 }
