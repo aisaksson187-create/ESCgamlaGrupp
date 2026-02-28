@@ -1,5 +1,24 @@
 {
+<<<<<<< HEAD
   "name": "Using fixtures to represent data",
   "email": "hello@cypress.io",
   "body": "Fixtures are a great way to mock data for responses to routes"
 }
+=======
+  "challenge": {
+    "id": 1,
+    "title": "Escape Room Challenge",
+    "type": "onsite",
+    "minParticipants": 2,
+    "maxParticipants": 6
+  },
+  "booking": {
+    "name": "test test",
+    "email": "test@test.com",
+    "phone": "1234567890",
+    "time": "10:00",
+    "participants": 4
+  }
+}
+
+>>>>>>> 22f8967be4388edf50fc9759d0c7215ed9c1d1f9

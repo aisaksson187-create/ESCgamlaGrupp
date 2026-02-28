@@ -50,3 +50,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event delegation on the container that holds the cards
     document.addEventListener('click', (event) => bookingRoomReservation(event, modal));
 });
+
+// SPA Routing for GitHub Pages
+(function() {
+  // Handle redirects from 404.html
+  const redirect = sessionStorage.getItem('redirect');
+  if (redirect) {
+    sessionStorage.removeItem('redirect');
+    const path = redirect.replace(/^\/[^/]+\//, '/'); // Remove repo name
+    if (path && path !== '/' && path !== '/index.html') {
+      // Handle routing to specific page
+      if (path.includes('OurChallenges.html')) {
+        window.location.href = './OurChallenges.html';
+      } else if (path.includes('theStory.html')) {
+        window.location.href = './theStory.html';
+      } else if (path.includes('contact.html')) {
+        window.location.href = './contact.html';
+      }
+    }
+  }
+})();

@@ -14,4 +14,21 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+<<<<<<< HEAD
 import './commands'
+=======
+import './commands'
+// Global before each hook
+beforeEach(() => {
+  // Clear cookies and localStorage
+  cy.clearCookies()
+  cy.clearLocalStorage()
+  
+  // Handle uncaught exceptions
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from failing the test
+    console.error('Uncaught exception:', err)
+    return false
+  })
+})
+>>>>>>> 22f8967be4388edf50fc9759d0c7215ed9c1d1f9

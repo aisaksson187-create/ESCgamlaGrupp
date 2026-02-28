@@ -22,6 +22,8 @@ let maxRating = 5;
 markStars(starMax, maxRating);
 const radioAnd = document.querySelector('#and');
 const radioOr = document.querySelector('#or');
+const globalAnd = document.querySelector('#filterAnd');
+const globalOr = document.querySelector('#filterOr');
 
 
 /* Eventlisteners */
@@ -30,6 +32,8 @@ cbOnsite.addEventListener('change', filter);
 textInput.addEventListener('input', filter);
 radioAnd.addEventListener('change', filter);
 radioOr.addEventListener('change', filter);
+globalAnd.addEventListener('change', filter);
+globalOr.addEventListener('change', filter);
 filterBtn.addEventListener('click', () => {
     filterInterface.classList.add('active');
 });
@@ -88,82 +92,99 @@ function markStars(stars, count) {
 
 /* Main filter function */
 function filter() {
-    let filtered = allChallenges;
-
-    /* Checkbox-filter */
     const showOnline = cbOnline.checked;
     const showOnsite = cbOnsite.checked;
-    const searchText = textInput.value.toLowerCase();
-    filtered = filtered.filter(challenge => {
-        if (showOnline && !showOnsite) {
-            return challenge.type === 'online';
-        }
-        if (!showOnline && showOnsite) {
-            return challenge.type === 'onsite';
-        }
-        if (showOnline && showOnsite) {
-            return true;
-        }
-        return true;
-    });
+    const searchText = textInput.value.toLowerCase().trim();
 
-    /* Text-input filter */
-    if (searchText && searchText.length >= 3) {
-        filtered = filtered.filter(challenge => {
-            const title = challenge.title.toLowerCase();
-            const desc = challenge.description.toLowerCase();
-            return title.includes(searchText) || desc.includes(searchText);
-        }
-        )
-    };
-
-    /* Tag filter */
     const activeTags = [];
     const activeElements = document.querySelectorAll('.filterTags.active');
-    const tagMode = radioAnd.checked ? 'and' : 'or';
-
     activeElements.forEach(tag => {
         activeTags.push(tag.dataset.tag);
     });
-    if (activeTags.length > 0) {
-        filtered = filtered.filter(challenge => {
-            if (!challenge.labels || !Array.isArray(challenge.labels)) {
-                return false;
+
+    const tagMode = radioAnd.checked ? 'and' : 'or';
+
+    // --- Global AND/OR ---
+    const globalMode = globalAnd.checked ? 'and' : 'or';
+
+    // Check active filters
+    const hasTypeFilter = showOnline || showOnsite;
+    const hasTextFilter = searchText.length >= 3;
+    const hasTagFilter = activeTags.length > 0;
+    const hasRatingFilter = !(minRating === 0 && maxRating === 5);
+
+    const filtered = allChallenges.filter(challenge => {
+        const tests = [];
+
+        // Checkbox filter
+        if (hasTypeFilter) {
+            let matchType = true;
+
+            if (showOnline && !showOnsite) {
+                matchType = challenge.type === 'online';
+            } else if (!showOnline && showOnsite) {
+                matchType = challenge.type === 'onsite';
+            } else if (showOnline && showOnsite) {
+                matchType = true;
             }
 
-            if (tagMode === 'and') {
-            for (let i = 0; i < activeTags.length; i++) {
-                let tag = activeTags[i];
+            tests.push(matchType);
+        }
 
-                if (!challenge.labels.includes(tag)) {
-                    return false;
+        // Text-filter
+        if (hasTextFilter) {
+            const title = challenge.title.toLowerCase();
+            const desc = challenge.description.toLowerCase();
+            const matchText = title.includes(searchText) || desc.includes(searchText);
+            tests.push(matchText);
+        }
+
+        //Tag-filter
+        if (hasTagFilter) {
+            if (!challenge.labels || !Array.isArray(challenge.labels)) {
+                tests.push(false);
+            } else {
+                if (tagMode === 'and') {
+                    
+                    const matchTags = activeTags.every(tag =>
+                        challenge.labels.includes(tag)
+                    );
+                    tests.push(matchTags);
+                } else {
+            
+                    const matchTags = activeTags.some(tag =>
+                        challenge.labels.includes(tag)
+                    );
+                    tests.push(matchTags);
                 }
             }
+        }
+
+        // star-filter
+        if (hasRatingFilter) {
+            const ratingRounded = Math.round(challenge.rating);
+            const matchRating =
+                ratingRounded >= minRating &&
+                ratingRounded <= maxRating;
+
+            tests.push(matchRating);
+        }
+
+        if (tests.length === 0) {
             return true;
         }
 
-            else {
-                for (let i = 0; i < activeTags.length; i++) {
-                let tag = activeTags[i];
-
-                if (challenge.labels.includes(tag)) {
-                    return true;
-                }
-            }
-            return false;
-            }
-        });
-    }
-
-    /* Star filter */
-    filtered = filtered.filter(challenge => {
-        return Math.round(challenge.rating) >= minRating && Math.round(challenge.rating <= maxRating);
+        if (globalMode === 'and') {
+       
+            return tests.every(Boolean);
+        } else {
+            return tests.some(Boolean);
+        }
     });
 
-
-    renderList(container, filtered)
-
+    renderList(container, filtered);
 }
+
 
 
 

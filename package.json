@@ -6,24 +6,48 @@
   "scripts": {
     "sass": "sass --no-source-map src/main.scss output.css",
     "watch-sass": "sass --watch --no-source-map src/main.scss output.css",
+<<<<<<< HEAD
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e:local": "cypress run",
     "test:e2e:stage": "cross-env CYPRESS_BASE_URL=https://aisaksson187-create.github.io/ESCgamlaGrupp/ cypress run"
+=======
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:test-modal": "cypress run --spec cypress/e2e/bookThisRoomModal.cy.js",
+    "cypress:test-all": "cypress run --spec 'cypress/e2e/*.cy.js'",
+    "test:modal": "start-server-and-test dev http://localhost:5173 cypress:test-modal",
+    "test:all": "start-server-and-test dev http://localhost:5173 cypress:test-all"
+>>>>>>> 22f8967be4388edf50fc9759d0c7215ed9c1d1f9
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marieapellLernia/ESC.git"
+    "url": "git+https://github.com/waqjel/ESC-Vite.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marieapellLernia/ESC/issues"
+    "url": "https://github.com/waqjel/ESC-Vite.git"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/marieapellLernia/ESC#readme",
   "devDependencies": {
     "cross-env": "^10.1.0",
     "cypress": "^15.10.0",
     "sass": "^1.94.0"
+=======
+  "homepage": "https://github.com/waqjel/ESC-Vite.git",
+  "devDependencies": {
+    "cypress": "^15.7.1",
+    "gh-pages": "6.3.0",
+    "glob": "^13.0.0",
+    "sass": "1.94.0",
+    "vite": "^7.2.7"
+>>>>>>> 22f8967be4388edf50fc9759d0c7215ed9c1d1f9
   }
 }
